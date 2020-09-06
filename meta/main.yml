@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Marco Massari Calderone <marco@marcomc.com>
+  description: Ansible role that provide exttra packages installation for Splinter, macOS setup automated with Ansible
+  license: MIT
+  min_ansible_version: 2
+  platforms:
+    - name: GenericLinux
+      versions:
+      - any
+    - name: MacOSX
+      versions:
+      - any
+  galaxy_tags:
+    - system
+    - user
+    - admin
+    - macos
+    - provisioning
