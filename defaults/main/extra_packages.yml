@@ -15,7 +15,7 @@ gem_packages: []
   #   version: "~> 1.15.1" # default: N/A
 
 # npm_global_packages_list_file values will be merged to npm_packages values
-npm_global_packages_list_file: files/lists/npm_global_packages.json
+npm_global_packages_list_file: ""
 
 # This list is complemented by {{npm_global_packages_list_file}}
 npm_packages: []
@@ -27,7 +27,7 @@ npm_packages: []
 # which is NOT advised, instead let the user setup its own pyenvs
 #
 # pip_packages_list_file values will be merged to pip_packages values
-pip_packages_list_file: files/lists/pip_packages.txt
+pip_packages_list_file: ""
 
 # This list is complemented by {{pip_packages_list_file}}
 pip_packages: []
