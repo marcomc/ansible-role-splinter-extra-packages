@@ -1,0 +1,28 @@
+---
+- name: Load list of packages from external file
+  block:
+  - name: Read Pip packages list from file
+    read_csv:
+      path: "{{ pip_packages_list_file }}"
+      fieldnames: name,version
+      delimiter: ','
+    register: pip_desired_packages
+    ignore_errors: yes
+    delegate_to: localhost
+
+  - name: Update the list of Desired Pip packages
+    set_fact:
+      pip_packages: "{{ pip_packages|default([]) + [{ 'name': item.name, 'state': 'present', 'version': item.version }] }}"
+    with_items: "{{ pip_desired_packages.list }}"
+    when: pip_desired_packages is defined
+  when:
+    - pip_packages_list_file is defined
+    - pip_packages_list_file != ''
+
+- name: Install global Pip packages.
+  pip:
+    name: "{{ item.name | default(item) }}"
+    state: "{{ item.state | default('present') }}"
+    version: "{{ item.version | default(omit) }}"
+    executable: "{{ item.executable | default(omit) }}"
+  with_items: "{{ pip_packages }}"
