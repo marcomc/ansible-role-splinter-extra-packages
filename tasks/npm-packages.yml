@@ -13,7 +13,7 @@
     with_dict: "{{ npm_desired_global_packages.dependencies }}"
   when:
     - npm_global_packages_list_file is defined
-    - npm_global_packages_list_file != ''
+    - npm_global_packages_list_file | length > 0
 
 - name: Install global NPM packages.
   npm:

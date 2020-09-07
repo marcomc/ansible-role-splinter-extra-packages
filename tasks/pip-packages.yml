@@ -17,7 +17,7 @@
     when: pip_desired_packages is defined
   when:
     - pip_packages_list_file is defined
-    - pip_packages_list_file != ''
+    - pip_packages_list_file | length > 0
 
 - name: Install global Pip packages.
   pip:
