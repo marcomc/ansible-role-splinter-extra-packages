@@ -10,7 +10,9 @@
 - name: Read NPM packages list from JSON file
   set_fact:
     npm_desired_global_packages: "{{ lookup('file', npm_global_packages_list_file) | from_json }}"
-  when: npm_global_packages_list_file is defined
+  when:
+    - npm_global_packages_list_file is defined
+    - npm_global_packages_list_file != ''
   ignore_errors: yes
   delegate_to: localhost
 
@@ -35,7 +37,9 @@
     fieldnames: name,version
     delimiter: ','
   register: pip_desired_packages
-  when: pip_packages_list_file is defined
+  when:
+    - pip_packages_list_file is defined
+    - pip_packages_list_file != ''
   ignore_errors: yes
   delegate_to: localhost
 
