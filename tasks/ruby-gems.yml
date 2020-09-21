@@ -18,7 +18,6 @@
     - ruby_gems_list_file is defined
     - ruby_gems_list_file | length > 0
 
-
 - name: Install user's Ruby gems.
   gem:
     name: "{{ item.name | default(item) }}"
