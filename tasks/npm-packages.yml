@@ -20,6 +20,8 @@
     name: "{{ item.name | default(item) }}"
     state: "{{ item.state | default('present') }}"
     version: "{{ item.version | default(omit) }}"
-    global: yes
+    global: no
     executable: "{{ item.executable | default(omit) }}"
   with_items: "{{ npm_packages }}"
+  become: "{{ target_user_id != ansible_user_id }}"
+  become_user: "{{ target_user_id }}"
