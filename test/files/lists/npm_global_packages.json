@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "kaizoku": {
+      "version": "1.2.6",
+      "from": "kaizoku",
+      "resolved": "https://registry.npmjs.org/kaizoku/-/kaizoku-1.2.6.tgz"
+    }
+  }
+}
