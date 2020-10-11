@@ -11,7 +11,7 @@ Ansible role that provide extra packages installation for [Splinter provisioning
           state: present # present/absent/latest, default: present
           version: "~> 1.15.1"
 
-      npm_global_packages_list_file: "files/lists/npm_global_packages.txt"
+      npm_global_packages_list_file: "files/lists/npm_global_packages.json"
 
       npm_packages:
         - name: webpack
@@ -26,13 +26,10 @@ Ansible role that provide extra packages installation for [Splinter provisioning
           version: "0.16.3"
 
     roles:
-      - role: marcomc.splinter_toolkit
-
-    tasks:
-      - name: Load the Splinter post provision tasks.
-        include_role:
-          name: marcomc.splinter_toolkit
-          tasks_from: post-provision
+      - role: marcomc.splinter_extra_packages
+        when: configure_extra_packages|bool
+        tags: ['extra-packages']
+        ignore_errors: yes
 
 
 # License & Copyright

@@ -15,7 +15,7 @@
         state: present # present/absent/latest, default: present
         version: "~> 1.15.1"
 
-    npm_global_packages_list_file: "files/lists/npm_packages.txt"
+    npm_global_packages_list_file: "files/lists/npm_global_packages.json"
 
     npm_packages:
       - name: webpack
