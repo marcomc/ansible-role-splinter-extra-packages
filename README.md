@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/marcomc/ansible-role-splinter-extra-packages.svg?branch=master)](https://travis-ci.com/marcomc/ansible-role-splinter-extra-packages)
+
 # ansible-role-splinter-extra-packages
 Ansible role that provide extra packages installation for [Splinter provisioning tool](https://github.com/marcomc/splinter/), macOS setup automated with Ansible
 
