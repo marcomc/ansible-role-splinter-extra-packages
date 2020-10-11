@@ -1,4 +1,5 @@
 ---
+target_user_id: "{{ ansible_user_id }}"
 #
 # YOU CAN CREATE XXX_LIST_FILES USING tools/export-apps-lists.sh
 #
