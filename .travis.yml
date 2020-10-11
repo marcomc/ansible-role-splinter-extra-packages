@@ -18,6 +18,7 @@ env:
       TEST_ANSIBLE_CONNECTION: local
       ANSIBLE_BECOME_PASS: travis
 script:
+  - alias pip=pip3
   - ansible-lint .
   - ansible-playbook -i test/inventory test/playbook.yml --syntax-check
   - ansible-playbook -i test/inventory test/playbook.yml --list-tasks
